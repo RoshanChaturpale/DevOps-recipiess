@@ -1,0 +1,9 @@
+services:
+ html-doc:
+  build: ./
+  container_name : abc
+  ports:
+   - 8080:80  
+  
+
+  
