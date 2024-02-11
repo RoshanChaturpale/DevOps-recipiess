@@ -1,9 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  #Unique key of the Deployment instance
   name: my-fist-app
-  
+
+#Deployment specification  
 spec:
+  #3 Pods should exist at all times
   replicas: 3
   selector:
     matchLabels:
@@ -14,6 +17,6 @@ spec:
         app: first-app
     spec:
       containers:
-      - name: first-container-app
+      - name: first-app
         image: roshanchaturpale/html-doc:01
         
