@@ -2,21 +2,27 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   #Unique key of the Deployment instance
-  name: my-fist-app
+  name: my-nodedb-app
 
 #Deployment specification  
 spec:
-  #3 Pods should exist at all times
+  #2 Pods should exist at all times
   replicas: 3
   selector:
     matchLabels:
-      app: first-app
+      app: nodedb-app
   template: 
     metadata:
       labels:
-        app: first-app
+        app: nodedb-app
     spec:
       containers:
-      - name: first-app
-        image: roshanchaturpale/html-doc:latest
+      - name: nodedb-app
+        image: roshanchaturpale/node-mongo-db:01
+      - name: mongodb
+        image: mongo:latest
+
+
+
+ 
         
