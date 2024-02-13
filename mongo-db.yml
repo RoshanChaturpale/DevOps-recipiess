@@ -27,7 +27,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: Service-mongodb
+  name: service-mongodb
   
 spec:
   selector:

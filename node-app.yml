@@ -24,12 +24,12 @@ spec:
             valueFrom:
               configMapKeyRef:
                 name: mongo-config
-                kye: MONGO_HOST
+                key: MONGO_HOST
           - name: MONGO_PORT
             valueFrom:
               configMapKeyRef:
                 name: mongo-config
-                kye: MONGO_PORT
+                key: MONGO_PORT
           
 
 
