@@ -7,7 +7,7 @@ metadata:
 #Deployment specification  
 spec:
   #2 Pods should exist at all times
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: nodedb-app
@@ -18,9 +18,10 @@ spec:
     spec:
       containers:
       - name: nodedb-app
-        image: roshanchaturpale/node-mongo-db:01
+        image: roshanchaturpale/node-mongo-db:03
+
       - name: mongodb
-        image: mongo:latest
+        image: mongo
 
 
 
