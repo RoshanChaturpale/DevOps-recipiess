@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  #Unique key of the Deployment instance
+  name: node-app
+
+#Deployment specification  
+spec:
+  #2 Pods should exist at all times
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-app
+  template: 
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - name: node-app
+        image: roshanchaturpale/node-mongo-db:04
+        env:
+          - name: MONGO_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: mongo-config
+                kye: MONGO_HOST
+          - name: MONGO_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: mongo-config
+                kye: MONGO_PORT
+          
+
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-node-app
+  
+spec:
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 3000
+  selector:
+    app: node-app
+  type: LoadBalancer  
