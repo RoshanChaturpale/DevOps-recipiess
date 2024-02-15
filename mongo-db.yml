@@ -19,7 +19,12 @@ spec:
       containers:
       - name: mongo-app
         image: mongo:latest
+      
+      
+      - name: mongo-express
+        image: mongo-express
 
+      
 
 ---
 
