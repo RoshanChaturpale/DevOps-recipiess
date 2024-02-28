@@ -1,41 +1,17 @@
-apiversion: apps/v1
-kind: deployment
-
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: my-first-app
-
- spec:
-  replicas: 2
+spec:
+  replicas: 1
   selector:
-    matchLabels: 
+    matchLabels:
       app: first-app
-
   template:
     metadata:
       labels:
         app: first-app
-
-
     spec:
       containers:
       - name: first-app
-        image: first-app:01
-
----
-
-
-apiVersion: v1
-kind: Service
-
-metadata:
-  name: first-app-s
-
-spec:
-  ports:
-    - name: http
-      port: 8080
-      targetPort: 80
-
-  selector:
-    app: first-app
-  
+        image: roshanchaturpale/html-doc:01
