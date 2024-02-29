@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: first-app
-        image: roshanchaturpale/html-doc:01
+        image: roshanchaturpale/html-doc:latest
